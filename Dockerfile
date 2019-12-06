@@ -1,6 +1,6 @@
 FROM python:3.7-alpine
 RUN apk update && \
-    apk add python python-dev linux-headers libffi-dev gcc make musl-dev py-pip mysql-client git openssl-dev
+    apk add python python-dev linux-headers libffi-dev gcc make musl-dev py3-pip mysql-client git openssl-dev
 RUN adduser -D -u 1001 -s /bin/bash ctfd
 
 WORKDIR /opt/CTFd
