@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     print('Current Tables:')
     for table in list(old_data.keys()):
-        print('\t', table)
+        print(('\t', table))
 
     old_conn.executable.close()
 
@@ -249,7 +249,7 @@ if __name__ == '__main__':
     not_created = []
     print('MIGRATING extra tables')
     for table in list(old_data.keys()):
-        print('MIGRATING', table)
+        print(('MIGRATING', table))
         new_conn.create_table(table, primary_id=False)
         data = old_data[table]
 
@@ -267,13 +267,13 @@ if __name__ == '__main__':
     print('Migration completed.')
     print('The following tables require manual setting of primary keys and manual inspection')
     for table in manual:
-        print('\t', table)
+        print(('\t', table))
 
     print('For example you can use the following commands if you know that the PRIMARY KEY for the table is `id`:')
     for table in manual:
-        print('\t', 'ALTER TABLE `{table}` ADD PRIMARY KEY(id)'.format(table=table))
+        print(('\t', 'ALTER TABLE `{table}` ADD PRIMARY KEY(id)'.format(table=table)))
 
     print(
         'The following tables were not created because they were empty and must be manually recreated (e.g. app.db.create_all()')
     for table in not_created:
-        print('\t', table)
+        print(('\t', table))
