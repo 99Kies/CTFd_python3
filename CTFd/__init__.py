@@ -22,10 +22,11 @@ from CTFd.utils.initialization import (
     init_events,
 )
 from CTFd.plugins import init_plugins
+import importlib
 
 # Hack to support Unicode in Python 2 properly
 if sys.version_info[0] < 3:
-    reload(sys)  # noqa: F821
+    importlib.reload(sys)  # noqa: F821
     sys.setdefaultencoding("utf-8")
 
 __version__ = "2.1.5"
